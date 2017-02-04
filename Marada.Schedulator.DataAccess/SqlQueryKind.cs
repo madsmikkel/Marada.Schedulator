@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace Marada.Schedulator.DataAccess
 {
-    public class Class1
-    {
-    }
+	internal enum SqlQueryKind
+	{
+		SelectAll,
+		SelectDistinct,
+		Insert,
+		Update,
+		Delete
+	}
 }

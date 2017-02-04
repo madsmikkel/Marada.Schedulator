@@ -55,6 +55,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="StationLayoutEditor.xaml.cs">
+      <DependentUpon>StationLayoutEditor.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -67,8 +70,15 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="StationLayoutEditor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MainWindow_DataTab.cs" />
+    <Compile Include="MainWindow_Menu.cs" />
+    <Compile Include="MainWindow_StatusBar.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -94,6 +104,16 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Marada.Schedulator.Core\Marada.Schedulator.Core.csproj">
+      <Project>{623577fa-758f-4466-b292-8f943246ed45}</Project>
+      <Name>Marada.Schedulator.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Marada.Schedulator.DataAccess\Marada.Schedulator.DataAccess.csproj">
+      <Project>{8064b74d-e027-445f-971e-0cf0e00a41e7}</Project>
+      <Name>Marada.Schedulator.DataAccess</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
