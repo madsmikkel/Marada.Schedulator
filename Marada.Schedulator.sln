@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Marada.Schedulator.UI.Win10
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Marada.Schedulator.Core", "Marada.Schedulator.Core\Marada.Schedulator.Core.csproj", "{623577FA-758F-4466-B292-8F943246ED45}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Marada.Schedulator.DataAccess", "Marada.Schedulator.DataAccess\Marada.Schedulator.DataAccess.csproj", "{8064B74D-E027-445F-971E-0CF0E00A41E7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{623577FA-758F-4466-B292-8F943246ED45}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{623577FA-758F-4466-B292-8F943246ED45}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{623577FA-758F-4466-B292-8F943246ED45}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8064B74D-E027-445F-971E-0CF0E00A41E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8064B74D-E027-445F-971E-0CF0E00A41E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8064B74D-E027-445F-971E-0CF0E00A41E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8064B74D-E027-445F-971E-0CF0E00A41E7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
