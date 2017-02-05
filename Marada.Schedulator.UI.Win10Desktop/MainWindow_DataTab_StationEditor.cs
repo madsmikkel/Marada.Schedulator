@@ -22,6 +22,7 @@ namespace Marada.Schedulator.UI.Win10Desktop
 		protected double stationEditorCanvasWidth;
 		protected double stationEditorCanvasHeight;
 		protected double[] stationEditorCanvasCenterXY = new double[2];
+		protected readonly double defaultLineThickness = 4;
 
 		protected virtual void DrawBaseTrack()
 		{
@@ -58,12 +59,12 @@ namespace Marada.Schedulator.UI.Win10Desktop
 
 		private void EllipseMouseRightButtomUp(object sender, MouseButtonEventArgs e)
 		{
-			
+
 		}
 
 		private void EllipseMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
 		{
-			
+
 		}
 
 		private void EllipseMouseLeave(object sender, MouseEventArgs e)
@@ -74,6 +75,24 @@ namespace Marada.Schedulator.UI.Win10Desktop
 		private void EllipseMouseEnter(object sender, MouseEventArgs e)
 		{
 			((Ellipse)sender).Fill = Brushes.Gray;
+			DrawNewMaybeLine((Ellipse)sender);
+		}
+
+		private void DrawNewMaybeLine(Ellipse ellipse)
+		{
+			Line newLine = GetNewLine(Brushes.Gray);
+			AttachHandlersTo(newLine);
+			
+			
+
+		}
+
+		private Line GetNewLine(SolidColorBrush color)
+		{
+			Line newLine = new Line();
+			newLine.Stroke = color;
+			newLine.StrokeThickness = defaultLineThickness;
+			return newLine;
 		}
 
 		private void LineMouseRightButtomUp(object sender, MouseButtonEventArgs e)
@@ -96,7 +115,7 @@ namespace Marada.Schedulator.UI.Win10Desktop
 			canvas_StationLayout.Children.Add(ellipse);
 		}
 
-		private Point GetEllipseSnapTpLinePosition(Line line, Point mousePoint)	=> 
+		private Point GetEllipseSnapTpLinePosition(Line line, Point mousePoint) =>
 			new Point(x: mousePoint.X - 10, y: line.Y1 - 10);
 
 
