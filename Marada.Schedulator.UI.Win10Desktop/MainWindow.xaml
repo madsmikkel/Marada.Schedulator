@@ -7,115 +7,151 @@
         mc:Ignorable="d"
         Closing="MainWindow_Closing"
         Title="Schedulator"
-        d:DesignHeight="600"
-        d:DesignWidth="900"
-        Height="900"
-        Width="1600">
-    <DockPanel x:Uid="dockPanel"
-               x:Name="dockPanel">
-        <Menu x:Uid="menu"
-              x:Name="menu"
-              DockPanel.Dock="Top"
-              Padding="2">
-            <MenuItem x:Uid="menuItem_File"
-                      x:Name="menuItem_File"
-                      Header="Filer">
-                <MenuItem x:Uid="menuItem_File_Close"
-                          x:Name="menuItem_File_Close"
-                          Click="MenuItem_File_Close_Click"
-                          Header="Luk" />
-            </MenuItem>
-            <MenuItem x:Uid="menuItem_Tools"
-                      x:Name="menuItem_Tools"
-                      Header="Værktøjer"></MenuItem>
-            <MenuItem x:Uid="menuItem_Options"
-                      x:Name="menuItem_Options"
-                      Header="Indstllinger"></MenuItem>
-            <MenuItem x:Uid="menuItem_Help"
-                      x:Name="menuItem_Help"
-                      Header="Hjælp">
-                <MenuItem x:Uid="menuItem_Help_About"
-                          x:Name="menuItem_Help_About"
-                          Click="MenuItem_Help_About_Click"
-                          Header="Om" />
-            </MenuItem>
-        </Menu>
-        <StatusBar x:Uid="statusBar"
-                   x:Name="statusBar"
-                   Background="RoyalBlue"
-                   DockPanel.Dock="Bottom">
-            <TextBlock x:Uid="textBlock_StatusBar"
-                       x:Name="textStatusBar"
-                       Text="Klar"
-                       Foreground="White" />
-        </StatusBar>
-        <Grid x:Uid="centerGrid"
-              x:Name="centerGrid">
-            <TabControl x:Uid="tabs"
-                        x:Name="tabs"
-                        Margin="5">
-                <TabItem x:Name="tabProjects"
-                         Header="Projekter"
-                         Padding="5"></TabItem>
-                <TabItem x:Name="tabData"
-                         Header="Data"
-                         Loaded="TabData_Loaded"
-                         Padding="5">
-                    <Grid x:Name="grid_DataSelection">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width=".5*" />
-                            <ColumnDefinition Width="5" />
-                            <ColumnDefinition Width="4*" />
-                        </Grid.ColumnDefinitions>
-                        <ListBox x:Name="listBox_DataSelection"
-                                 BorderBrush="Transparent"
-                                 DisplayMemberPath=""
-                                 Grid.Column="0"
-                                 ItemsSource="{Binding DataSelectionList}"
-                                 Margin="5">
-                            <ListBox.ItemTemplate>
-                                <DataTemplate>
-                                    <Label Content="{Binding}"
-                                           Margin="0,10,0,10"
-                                           FontSize="18" />
-                                </DataTemplate>
-                            </ListBox.ItemTemplate>
-                        </ListBox>
-                        <GridSplitter Grid.Column="1"
-                                      Width="5"
-                                      HorizontalAlignment="Stretch" />
-                        <Grid Grid.Column="2">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="1*" />
-                                <ColumnDefinition Width="4*" />
-                            </Grid.ColumnDefinitions>
-                            <StackPanel Grid.Column="0">
-                                <DockPanel Margin="5">
-                                    <Label Content="Søg:"
-                                           DockPanel.Dock="Left"
-                                           Margin="5" />
-                                    <Button Content="Søg"
-                                            DockPanel.Dock="Right"
-                                            Margin="5"
-                                            Padding="15,0,15,0" />
-                                    <TextBox />
-                                </DockPanel>
-                                <DataGrid x:Name="dataGrid_Stations"
-                                          AutoGenerateColumns="False"
-                                          ItemsSource="{Binding Stations}">
-                                    <DataGridTextColumn Header="Navn"
-                                                        Binding="{Binding Name}" />
-                                    <DataGridTextColumn Header="Forkortelse"
-                                                        Binding="{Binding Abbreviation}" />
-                                </DataGrid>
-                            </StackPanel>
-                            <GroupBox Grid.Column="1"
-                                      Header="Stationsdetaljer"
-                                      Margin="10,5,10,5"></GroupBox>
-                        </Grid>
-                    </Grid>
-                </TabItem>
-            </TabControl>
-        </Grid>
-    </DockPanel>
+        d:DesignHeight="800"
+        d:DesignWidth="1500"
+        Height="800"
+        Width="1500"
+        WindowStartupLocation="CenterScreen">
+  <DockPanel x:Uid="dockPanel"
+             x:Name="dockPanel">
+    <Menu x:Uid="menu"
+          x:Name="menu"
+          DockPanel.Dock="Top"
+          Padding="2">
+      <MenuItem x:Uid="menuItem_File"
+                x:Name="menuItem_File"
+                Header="Filer">
+        <MenuItem x:Uid="menuItem_File_Close"
+                  x:Name="menuItem_File_Close"
+                  Click="MenuItem_File_Close_Click"
+                  Header="Luk" />
+      </MenuItem>
+      <MenuItem x:Uid="menuItem_Tools"
+                x:Name="menuItem_Tools"
+                Header="Værktøjer"></MenuItem>
+      <MenuItem x:Uid="menuItem_Options"
+                x:Name="menuItem_Options"
+                Header="Indstllinger"></MenuItem>
+      <MenuItem x:Uid="menuItem_Help"
+                x:Name="menuItem_Help"
+                Header="Hjælp">
+        <MenuItem x:Uid="menuItem_Help_About"
+                  x:Name="menuItem_Help_About"
+                  Click="MenuItem_Help_About_Click"
+                  Header="Om" />
+      </MenuItem>
+    </Menu>
+    <StatusBar x:Uid="statusBar"
+               x:Name="statusBar"
+               Background="RoyalBlue"
+               DockPanel.Dock="Bottom">
+      <TextBlock x:Uid="textBlock_StatusBar"
+                 x:Name="textStatusBar"
+                 Text="Klar"
+                 Foreground="White" />
+    </StatusBar>
+    <Grid x:Uid="centerGrid"
+          x:Name="centerGrid">
+      <TabControl x:Uid="tabs"
+                  x:Name="tabs"
+                  Margin="5">
+        <TabItem x:Name="tabData"
+                 Header="Data"
+                 Loaded="TabData_Loaded"
+                 Padding="5">
+          <Grid x:Name="grid_DataSelection">
+            <Grid.ColumnDefinitions>
+              <ColumnDefinition Width=".5*" />
+              <ColumnDefinition Width="5" />
+              <ColumnDefinition Width="4*" />
+            </Grid.ColumnDefinitions>
+            <ListBox x:Name="listBox_DataSelection"
+                     BorderBrush="Transparent"
+                     DisplayMemberPath=""
+                     Grid.Column="0"
+                     ItemsSource="{Binding DataSelectionList}"
+                     Margin="5"
+                     SelectionChanged="listBox_DataSelection_SelectionChanged">
+              <ListBox.ItemTemplate>
+                <DataTemplate>
+                  <Label Content="{Binding}"
+                         Margin="0,10,0,10"
+                         FontSize="16" />
+                </DataTemplate>
+              </ListBox.ItemTemplate>
+            </ListBox>
+            <Separator Grid.Column="1"
+                       Style="{StaticResource {x:Static  ToolBar.SeparatorStyleKey}}" />
+            <Grid Grid.Column="2">
+              <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="4*" />
+              </Grid.ColumnDefinitions>
+              <StackPanel Grid.Column="0"
+                          Margin="5">
+                <DockPanel Margin="5">
+                  <Label Content="Søg:"
+                         DockPanel.Dock="Left"
+                         Margin="5" />
+                  <Button Content="Søg"
+                          DockPanel.Dock="Right"
+                          Margin="5"
+                          Padding="15,0,15,0"
+                          Click="Button_Click" />
+                  <TextBox />
+                </DockPanel>
+                <DataGrid x:Name="dataGrid_Stations"
+                          AutoGenerateColumns="False"
+                          Height="610"
+                          ItemsSource="{Binding stations}"
+                          Margin="5"
+                          ScrollViewer.VerticalScrollBarVisibility="Auto"
+                          SelectionChanged="DataGrid_Stations_SelectionChanged">
+                  <DataGrid.Columns>
+                    <DataGridTextColumn Header="Navn"
+                                        Binding="{Binding Name}"
+                                        MinWidth="30" />
+                    <DataGridTextColumn Header="Fork."
+                                        Binding="{Binding Abbreviation}"
+                                        MinWidth="10" />
+                  </DataGrid.Columns>
+                </DataGrid>
+              </StackPanel>
+              <GroupBox Grid.Column="1"
+                        Header="Stationsdetaljer"
+                        Margin="10,5,10,5">
+                <Grid x:Name="grid_StationDetails">
+                  <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="5" />
+                    <RowDefinition Height="*" />
+                  </Grid.RowDefinitions>
+                  <Grid x:Name="grid_StationEditorCanvas"
+                        Grid.Row="0">
+                    <Canvas x:Name="canvas_StationLayout"
+                            Background="FloralWhite"
+                            Margin="5" />
+                  </Grid>
+                  <Separator Grid.Row="1" />
+                  <Grid x:Name="grid_StationDetailsBottom"
+                        Grid.Row="2">
+                    <Grid.ColumnDefinitions>
+                      <ColumnDefinition Width="1*" />
+                      <ColumnDefinition Width="1*" />
+                    </Grid.ColumnDefinitions>
+                    <GroupBox Grid.Column="0"
+                              Header="Stations information"
+                              Margin="5" />
+                    <GroupBox Grid.Column="1"
+                              Header="Markeret element i station layout"
+                              Margin="5" />
+                  </Grid>
+                </Grid>
+              </GroupBox>
+            </Grid>
+          </Grid>
+        </TabItem>
+      </TabControl>
+    </Grid>
+  </DockPanel>
 </Window>

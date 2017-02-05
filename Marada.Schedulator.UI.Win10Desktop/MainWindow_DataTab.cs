@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Windows.Controls;
 using System.Windows;
 
 using Marada.Schedulator.Core;
@@ -29,6 +30,11 @@ namespace Marada.Schedulator.UI.Win10Desktop
 		{
 			get
 			{
+				if(stationRepo == null)
+				{
+					stationRepo = new StationDataRepository();
+				}
+				stations = new ObservableCollection<Station>(stationRepo.GetAll());
 				return stations;
 			}
 
@@ -41,10 +47,16 @@ namespace Marada.Schedulator.UI.Win10Desktop
 
 		#endregion
 
+
 		#region Event Handlers
+		private void DataGrid_Stations_SelectionChanged(object sender, SelectionChangedEventArgs e)
+		{
+			DrawBaseTrack();
+		}
+
 		private void TabData_Loaded(object sender, RoutedEventArgs e)
 		{
-
+			listBox_DataSelection.ItemsSource = DataSelectionList;
 		}
 		#endregion
 	}

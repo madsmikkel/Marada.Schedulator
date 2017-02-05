@@ -40,7 +40,7 @@ namespace Marada.Schedulator.DataAccess
 			string name = "connectionStringSchedulatorDb";
 			try
 			{
-				connectionString = ConfigurationManager.ConnectionStrings[name].ConnectionString;
+				connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=Marada.Schedulator.Database;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";//ConfigurationManager.ConnectionStrings[name].ConnectionString;
 			}
 			catch(Exception)
 			{

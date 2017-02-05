@@ -55,6 +55,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="MainWindow_DataTab_StationEditor.cs" />
     <Compile Include="StationLayoutEditor.xaml.cs">
       <DependentUpon>StationLayoutEditor.xaml</DependentUpon>
     </Compile>

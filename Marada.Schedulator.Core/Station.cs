@@ -17,6 +17,9 @@ namespace Marada.Schedulator.Core
 		public string Name { get; set; }
 		public string Abbreviation { get; set; }
 
-
+		public override string ToString()
+		{
+			return $"{Name} ({Abbreviation})";
+		}
 	}
 }

@@ -45,6 +45,7 @@ namespace Marada.Schedulator.UI.Win10Desktop
 				MessageBox.Show(e.ToString());
 				Application.Current.Shutdown();
 			}
+					
 		}
 
 		/// <summary>
@@ -73,6 +74,19 @@ namespace Marada.Schedulator.UI.Win10Desktop
 			else
 			{
 				e.Cancel = true;
+			}
+		}
+
+		private void Button_Click(object sender, RoutedEventArgs e)
+		{
+			DrawBaseTrack();
+		}
+
+		private void listBox_DataSelection_SelectionChanged(object sender, SelectionChangedEventArgs e)
+		{
+			if(listBox_DataSelection.SelectedIndex == 0)
+			{
+				dataGrid_Stations.ItemsSource = Stations;
 			}
 		}
 
